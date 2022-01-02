@@ -1,9 +1,10 @@
 import React from "react";
+import "./Header.css";
 
 export default function Header() {
   return (
-    <Header>
-      <img src="" alt="" />
-    </Header>
+    <header className="header">
+      {/* <img src="https://cdn.wallpapersafari.com/95/41/o4fz35.png" alt="" /> */}
+    </header>
   );
 }

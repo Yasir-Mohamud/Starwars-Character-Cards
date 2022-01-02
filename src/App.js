@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "./components/Card";
-
+import Header from "./components/Header";
 export default function App() {
   const [starwarsData, setStarwarsData] = useState([]);
 
@@ -25,5 +25,10 @@ export default function App() {
     );
   });
 
-  return <div className="App">{starwarsCharacters}</div>;
+  return (
+    <div className="App">
+      <Header />
+      <main className="main">{starwarsCharacters}</main>
+    </div>
+  );
 }
