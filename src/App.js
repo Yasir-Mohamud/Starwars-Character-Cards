@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Card from "./components/Card";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+  const [starwarsData, setStarwarsData] = useState([]);
+
+  useEffect(() => {
+    console.log("EFFECT");
+    fetch("https://akabab.github.io/starwars-api/api/all.json")
+      .then((response) => response.json())
+      .then((data) => setStarwarsData(data));
+  }, []);
+  console.log(starwarsData);
+
+  const starwarsCharacters = starwarsData.map((data) => {
+    return (
+      <Card
+        key={data.id}
+        image={data.image}
+        name={data.name}
+        species={data.species}
+        height={data.height}
+        mass={data.mass}
+      />
+    );
+  });
+
+  return <div className="App">{starwarsCharacters}</div>;
 }
-
-export default App;

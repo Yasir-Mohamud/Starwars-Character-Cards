@@ -1,0 +1,13 @@
+.card {
+  width: 20rem;
+}
+
+.card > img {
+  height: 350px;
+}
+
+.App {
+  display: flex;
+  align-items: space-evenly;
+  flex-wrap: wrap;
+}
